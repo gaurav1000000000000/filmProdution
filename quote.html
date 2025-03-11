@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request a custom quote for Day and Night Film services">
+    <title>Get A Quote - Day and Night Film</title>
+    <link rel="icon" href="./img/core-img/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Retained existing styles */
+    color: #333;
+    line-height: 1.6;
+    background: #ffffff; /* Changed to white background */
+    position: relative; /* Required for pseudo-element positioning */
+    overflow-x: hidden; /* Prevents horizontal scroll from glow effect */
+}
+
+/* Dotted Background with Glow */
+body::before {
+    content: '';
+    position: fixed; /* Fixed to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+            circle at var(--cursor-x, 50%) var(--cursor-y, 50%), /* Glow centered on cursor */
+            rgba(200, 200, 200, 0.5) 0%, /* Light gray glow with 50% opacity */
+            transparent 20% /* Glow radius */
+        ),
+        radial-gradient(#ddd 1px, transparent 1px); /* Dotted grid */
+    background-size: 20px 20px; /* Spacing of dots */
+    pointer-events: none; /* Prevents interference with clicks */
+    z-index: -1; /* Behind content */
+    transition: background 0.1s ease; /* Smooth glow movement */
+}
+
+.services {
+    padding: 60px 20px;
+    background-color: rgba(249, 249, 249, 0.8); /* Transparent to show background */
+    text-align: center;
+}
+        /* Header Styles (Matching the image) */
+        .header-area {
+            background-color: #e6eff6;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ff6f61, #800080);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            padding: 5px 15px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 20px;
+        }
+        .nav-links li a {
+            color: #4b0082;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links li a:hover, .nav-links li.current a {
+            color: #ff6f61;
+        }
+        .quote-section {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.5s ease-in;
+            text-align: center;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .quote-section h2 {
+            color: #222;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #ff6f61, #2a2a72);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .quote-form label {
+            font-size: 1em;
+            color: #555;
+            font-weight: 500;
+            text-align: left;
+        }
+        .quote-form input, .quote-form select, .quote-form textarea {
+            padding: 12px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            width: 100%;
+        }
+        .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus {
+            border-color: #007bff;
+        }
+        .quote-form button {
+            padding: 15px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            text-transform: uppercase;
+        }
+        .quote-form button:hover {
+            background: #0056b3;
+            transform: translateY(-2px);
+        }
+        .professional-footer {
+            background: linear-gradient(180deg, #0f1419 0%, #1c2526 100%);
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            padding: 60px 0 0;
+            border-top: 2px solid #2a2a2a;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 15px;
+        }
+        .footer-section {
+            position: relative;
+        }
+        .footer-logo {
+            font-size: 26px;
+            font-weight: 700;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+        }
+        .footer-slogan {
+            font-size: 14px;
+            font-weight: 300;
+            color: #a0a0a0;
+            margin: 0 0 20px;
+        }
+        .footer-contact {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #a0a0a0;
+        }
+        .footer-contact p {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        .contact-icon {
+            width: 20px;
+            margin-right: 10px;
+            color: #c0c0c0;
+        }
+        .footer-contact a {
+            color: #c0c0c0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-contact a:hover {
+            color: #ffffff;
+        }
+        .footer-heading {
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #ffffff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        .footer-links a {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        .footer-about-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #a0a0a0;
+            margin: 0;
+        }
+        .footer-legal-bar {
+            border-top: 1px solid #2a2a2a;
+            padding: 20px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-copyright {
+            font-size: 12px;
+            color: #808080;
+            margin: 0;
+        }
+        .footer-legal-links {
+            display: flex;
+            gap: 20px;
+        }
+        .footer-legal-links a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 12px;
+            transition: color 0.3s ease;
+        }
+        .footer-legal-links a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .nav-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            .nav-links li {
+                margin: 10px 0;
+            }
+            .quote-section {
+                margin: 20px;
+                padding: 20px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .footer-legal-bar {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (Matching the image) -->
+    <header class="header-area">
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <nav class="classy-navbar justify-content-between" id="uzaNav">
+                    <a class="nav-brand logo-text" href="index.html">Day and Night Film</a>
+                    <style>
+                        .nav-brand.logo-text { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; padding: 10px 20px; background: linear-gradient(90deg, #ff6f61, #2a2a72); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.3s ease; }
+                        .nav-brand.logo-text:hover { transform: scale(1.05); opacity: 0.9; }
+                    </style>
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+                    <div class="classy-menu">
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="./index.html">Home</a></li>
+                                <li><a href="./services.html">Services</a></li>
+                                <li><a href="./about.html">About</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                            </ul>
+                            <div class="get-a-quote ml-4 mr-3">
+                               <li  class="current-item" ><a href="quote.html" class="btn uza-btn">Get A Quote</a></li> 
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <h2>Get Your Custom Quote</h2>
+        <form class="quote-form" id="quoteForm" onsubmit="handleQuoteRequest(event)">
+            <div>
+                <label for="quoteName">Full Name</label>
+                <input type="text" id="quoteName" placeholder="John Doe" required>
+            </div>
+            <div>
+                <label for="quoteEmail">Email</label>
+                <input type="email" id="quoteEmail" placeholder="example@domain.com" required>
+            </div>
+            <div>
+                <label for="quotePhone">Phone Number</label>
+                <input type="tel" id="quotePhone" placeholder="xxxxxxxxx" required>
+            </div>
+            <div>
+                <label for="quoteService">Service</label>
+                <select id="quoteService" required>
+                    <option value="" disabled selected>Select a service</option>
+                    <option value="Photography">Photography (₹ 15,000+)</option>
+                    <option value="Videography">Videography (₹ 40,000+)</option>
+                    <option value="Film Production">Film Production (₹ 1,50,000+)</option>
+                    <option value="Drone Photography">Drone Photography (₹ 25,000+)</option>
+                    <option value="Event Coverage">Event Coverage (₹ 65,000+)</option>
+                    <option value="Photo Editing">Photo Editing (₹ 4,000+/image)</option>
+                    <option value="Audio Recording">Audio Recording (₹ 12,000+/hour)</option>
+                    <option value="Creative Consulting">Creative Consulting (₹ 25,000+/session)</option>
+                </select>
+            </div>
+            <div>
+                <label for="quoteMessage">Additional Details</label>
+                <textarea id="quoteMessage" rows="4" placeholder="Tell us about your project..." required></textarea>
+            </div>
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="professional-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand-contact">
+                    <h2 class="footer-logo" aria-label="Day & Night Film">Day & Night Film</h2>
+                    <p class="footer-slogan">Cinematic Excellence Since 2015</p>
+                    <div class="footer-contact" aria-label="Contact Information">
+                        <p><span class="contact-icon"><i class="fas fa-envelope"></i></span> <a href="mailto:xxxxxxxxx">xxxxxxxxx</a></p>
+                        <p><span class="contact-icon"><i class="fas fa-phone"></i></span> <a href="tel:+919876543210">xxxxxxxxx</a></p>
+                    </div>
+                </div>
+                <div class="footer-section footer-navigation">
+                    <h3 class="footer-heading">Navigation</h3>
+                    <ul class="footer-links" role="navigation">
+                        <li><a href="/" aria-label="Home">Home</a></li>
+                        <li><a href="services.html" aria-label="Our Services">Our Services</a></li>
+                        <li><a href="/about" aria-label="About Us">About Us</a></li>
+                        <li><a href="/contact" aria-label="Contact Us">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-about">
+                    <h3 class="footer-heading">About Us</h3>
+                    <p class="footer-about-text">Day & Night Film, LLC is an award-winning production house dedicated to crafting compelling narratives.</p>
+                </div>
+            </div>
+            <div class="footer-legal-bar">
+                <p class="footer-copyright">
+                    © <script>document.write(new Date().getFullYear());</script> Day & Night Film, LLC. All Rights Reserved.
+                </p>
+                <nav class="footer-legal-links" role="navigation" aria-label="Legal Navigation">
+                    <a href="/privacy" aria-label="Privacy Policy">Privacy Policy</a>
+                    <a href="/terms" aria-label="Terms of Use">Terms of Use</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Pre-fill service if passed from services.html
+        const urlParams = new URLSearchParams(window.location.search);
+        const service = urlParams.get('service');
+        if (service) {
+            document.getElementById('quoteService').value = service;
+        }
+
+        // Handle form submission
+        function handleQuoteRequest(event) {
+            event.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const email = document.getElementById('quoteEmail').value;
+            const phone = document.getElementById('quotePhone').value;
+            const service = document.getElementById('quoteService').value;
+            const message = document.getElementById('quoteMessage').value;
+
+            console.log({ name, email, phone, service, message });
+            alert('Thank you! Your quote request has been submitted. We’ll get back to you soon.');
+            document.getElementById('quoteForm').reset();
+        }
+
+        // Highlight current page
+        document.querySelectorAll('.nav-links li').forEach(item => {
+            if (item.querySelector('a').getAttribute('href') === window.location.pathname.split('/').pop()) {
+                item.classList.add('current');
+            }
+            
+        });
+
+        // Glowing Background Effect
+document.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100; /* Convert to percentage */
+    const y = (e.clientY / window.innerHeight) * 100; /* Convert to percentage */
+    document.body.style.setProperty('--cursor-x', `${x}%`); /* Set X position */
+    document.body.style.setProperty('--cursor-y', `${y}%`); /* Set Y position */
+});
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/uza.bundle.js"></script>
+    <script src="js/default-assets/active.js"></script>
+</body>
+</html>

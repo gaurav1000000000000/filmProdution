@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="uza - Model Agency HTML5 Template">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Uza - Creative Agency HTML5 Template</title>
+    <link rel="icon" href="./img/core-img/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* [Previous inline CSS remains unchanged] */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+        .services { padding: 60px 20px; background-color: #f9f9f9; text-align: center; }
+        .services h2 { font-size: 2.5em; margin-bottom: 40px; color: #222; }
+        .services-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .service-card { background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); }
+        .service-card h3 { font-size: 1.5em; margin-bottom: 15px; color: #222; }
+        .service-card p { font-size: 1em; margin-bottom: 20px; color: #666; }
+        .service-features { list-style: none; text-align: left; margin-bottom: 20px; }
+        .service-features li { font-size: 0.9em; margin-bottom: 10px; position: relative; padding-left: 20px; }
+        .service-features li:before { content: "✔"; color: #007bff; position: absolute; left: 0; }
+        .pricing { font-size: 1.2em; font-weight: bold; color: #007bff; margin-bottom: 20px; }
+        .buttons { display: flex; gap: 10px; justify-content: center; }
+        button.read-more, button.buy-now-btn { padding: 10px 20px; border: none; border-radius: 5px; font-size: 1em; cursor: pointer; transition: background-color 0.3s ease; }
+        button.read-more { background-color: #f1f1f1; color: #333; }
+        button.read-more:hover { background-color: #ddd; }
+        button.buy-now-btn { background-color: #007bff; color: #fff; }
+        button.buy-now-btn:hover { background-color: #0056b3; }
+        /* Footer Styles */
+        .professional-footer { background: linear-gradient(180deg, #0f1419 0%, #1c2526 100%); color: #ffffff; font-family: 'Helvetica Neue', Arial, sans-serif; padding: 60px 0 0; border-top: 2px solid #2a2a2a; }
+        .footer-content { display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 40px; max-width: 1200px; margin: 0 auto 40px; padding: 0 15px; }
+        .footer-section { position: relative; }
+        .footer-logo { font-size: 26px; font-weight: 700; margin: 0 0 10px; text-transform: uppercase; letter-spacing: 1.5px; color: #ffffff; }
+        .footer-slogan { font-size: 14px; font-weight: 300; color: #a0a0a0; margin: 0 0 20px; }
+        .footer-contact { font-size: 14px; line-height: 1.8; color: #a0a0a0; }
+        .footer-contact p { margin: 10px 0; display: flex; align-items: center; }
+        .contact-icon { width: 20px; margin-right: 10px; color: #c0c0c0; }
+        .footer-contact a { color: #c0c0c0; text-decoration: none; transition: color 0.3s ease; }
+        .footer-contact a:hover { color: #ffffff; }
+        .footer-heading { font-size: 16px; font-weight: 600; text-transform: uppercase; color: #ffffff; margin-bottom: 20px; letter-spacing: 1px; }
+        .footer-links { list-style: none; padding: 0; margin: 0; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #a0a0a0; text-decoration: none; font-size: 14px; transition: color 0.3s ease; }
+        .footer-links a:hover { color: #ffffff; }
+        .footer-about-text { font-size: 14px; line-height: 1.6; color: #a0a0a0; margin: 0; }
+        .footer-legal-bar { border-top: 1px solid #2a2a2a; padding: 20px 15px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
+        .footer-copyright { font-size: 12px; color: #808080; margin: 0; }
+        .footer-legal-links { display: flex; gap: 20px; }
+        .footer-legal-links a { color: #c0c0c0; text-decoration: none; font-size: 12px; transition: color 0.3s ease; }
+        .footer-legal-links a:hover { color: #ffffff; text-decoration: underline; }
+        @media (max-width: 768px) { .footer-content { grid-template-columns: 1fr; gap: 30px; } .footer-legal-bar { flex-direction: column; gap: 10px; text-align: center; } }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-area">
+        <div class="main-header-area">
+            <div class="classy-nav-container breakpoint-off">
+                <nav class="classy-navbar justify-content-between" id="uzaNav">
+                    <a class="nav-brand logo-text" href="index.html">Day and Night Film</a>
+                    <style>
+                        .nav-brand.logo-text { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 2px; text-decoration: none; padding: 10px 20px; background: linear-gradient(90deg, #ff6f61, #2a2a72); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: all 0.3s ease; }
+                        .nav-brand.logo-text:hover { transform: scale(1.05); opacity: 0.9; }
+                    </style>
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+                    <div class="classy-menu">
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+                        <div class="classynav">
+                            <ul id="nav">
+                                <li><a href="./index.html">Home</a></li>
+                                <li class="current-item"><a href="./services.html">Services</a></li>
+                                <li><a href="./about.html">About</a></li>
+                                <li><a href="./contact.html">Contact</a></li>
+                            </ul>
+                            <div class="get-a-quote ml-4 mr-3">
+                                <a href="quote.html" class="btn uza-btn">Get A Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb-area">
+        <div class="container h-100">
+            <div class="row h-100 align-items-end">
+                <div class="col-12">
+                    <div class="breadcumb--con">
+                        <h2 class="title">Services</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Services</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb-bg-curve">
+            <img src="./img/core-img/curve-5.png" alt="">
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services">
+        <h2>Detailed Service Offerings</h2>
+        <div class="services-container">
+            <div class="service-card" data-service="Photography" data-price="15000">
+                <h3>Photography</h3>
+                <p>Our photography services cover everything from intimate portraits to large-scale commercial shoots.</p>
+                <ul class="service-features">
+                    <li>Portrait Photography</li>
+                    <li>Event Photography</li>
+                    <li>Product Photography</li>
+                    <li>Outdoor Sessions</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 15,000</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="photography.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Photography', 15000)">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-service="Videography" data-price="40000">
+                <h3>Videography</h3>
+                <p>High-definition video production for any occasion.</p>
+                <ul class="service-features">
+                    <li>4K Video Recording</li>
+                    <li>Multi-Camera Setup</li>
+                    <li>Professional Editing</li>
+                    <li>Custom Soundtracks</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 40,000</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="videography.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Videography', 40000)">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-service="Film Production" data-price="150000">
+                <h3>Film Production</h3>
+                <p>From script to screen, complete film production services.</p>
+                <ul class="service-features">
+                    <li>Pre-Production Planning</li>
+                    <li>Professional Crew</li>
+                    <li>Advanced Editing</li>
+                    <li>Distribution Support</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 1,50,000</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="film_production.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Film Production', 150000)">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-service="Drone Photography" data-price="25000">
+                <h3>Drone Photography</h3>
+                <p>Capture breathtaking aerial perspectives.</p>
+                <ul class="service-features">
+                    <li>FAA-Licensed Pilots</li>
+                    <li>4K Aerial Footage</li>
+                    <li>Live Streaming</li>
+                    <li>Custom Flight Plans</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 25,000</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="drone_photography.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Drone Photography', 25000)">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-service="Event Coverage" data-price="65000">
+                <h3>Event Coverage</h3>
+                <p>Comprehensive documentation of your events.</p>
+                <ul class="service-features">
+                    <li>Weddings & Parties</li>
+                    <li>Corporate Events</li>
+                    <li>Live Streaming</li>
+                    <li>Highlight Reels</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 65,000</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="event_coverage.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Event Coverage', 65000)">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-service="Photo Editing" data-price="4000">
+                <h3>Photo Editing</h3>
+                <p>Transform your images with professional retouching.</p>
+                <ul class="service-features">
+                    <li>Color Correction</li>
+                    <li>Background Removal</li>
+                    <li>Special Effects</li>
+                    <li>Bulk Processing</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 4,000/image</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="photo_editing.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Photo Editing', 4000)">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-service="Audio Recording" data-price="12000">
+                <h3>Audio Recording</h3>
+                <p>Studio-quality audio services.</p>
+                <ul class="service-features">
+                    <li>Soundproof Studio</li>
+                    <li>Voiceover Recording</li>
+                    <li>Audio Mixing</li>
+                    <li>Sound Effects</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 12,000/hour</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="audio_recording.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Audio Recording', 12000)">Buy Now</button>
+                </div>
+            </div>
+
+            <div class="service-card" data-service="Creative Consulting" data-price="25000">
+                <h3>Creative Consulting</h3>
+                <p>Expert guidance on visual storytelling.</p>
+                <ul class="service-features">
+                    <li>Concept Development</li>
+                    <li>Storyboard Creation</li>
+                    <li>Project Management</li>
+                    <li>Creative Workshops</li>
+                </ul>
+                <div class="pricing">
+                    <p>Starting at ₹ 25,000/session</p>
+                </div>
+                <div class="buttons">
+                    <button class="read-more"><a href="creative_consulting.html">Read More</a></button>
+                    <button class="buy-now-btn" onclick="redirectToCheckout('Creative Consulting', 25000)">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="professional-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section footer-brand-contact">
+                    <h2 class="footer-logo" aria-label="Day & Night Film">Day & Night Film</h2>
+                    <p class="footer-slogan">Cinematic Excellence Since 2015</p>
+                    <div class="footer-contact" aria-label="Contact Information">
+                        <p><span class="contact-icon"><i class="fas fa-envelope"></i></span> <a href="mailto:xxxxxxxxx">xxxxxxxxx</a></p>
+                        <p><span class="contact-icon"><i class="fas fa-phone"></i></span> <a href="tel:+919876543210">xxxxxxxxx</a></p>
+                    </div>
+                </div>
+                <div class="footer-section footer-navigation">
+                    <h3 class="footer-heading">Navigation</h3>
+                    <ul class="footer-links" role="navigation">
+                        <li><a href="/" aria-label="Home">Home</a></li>
+                        <li><a href="services.html" aria-label="Our Services">Our Services</a></li>
+                        <li><a href="/about" aria-label="About Us">About Us</a></li>
+                        <li><a href="/contact" aria-label="Contact Us">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-about">
+                    <h3 class="footer-heading">About Us</h3>
+                    <p class="footer-about-text">Day & Night Film, LLC is an award-winning production house dedicated to crafting compelling narratives.</p>
+                </div>
+            </div>
+            <div class="footer-legal-bar">
+                <p class="footer-copyright">
+                    © <script>document.write(new Date().getFullYear());</script> Day & Night Film, LLC. All Rights Reserved.
+                </p>
+                <nav class="footer-legal-links" role="navigation" aria-label="Legal Navigation">
+                    <a href="/privacy" aria-label="Privacy Policy">Privacy Policy</a>
+                    <a href="/terms" aria-label="Terms of Use">Terms of Use</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function redirectToCheckout(serviceName, price) {
+            const checkoutUrl = `checkout.html?service=${encodeURIComponent(serviceName)}&price=${price}¤cy=INR`;
+            window.location.href = checkoutUrl;
+        }
+    </script>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/uza.bundle.js"></script>
+    <script src="js/default-assets/active.js"></script>
+</body>
+</html>
