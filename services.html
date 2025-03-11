@@ -116,6 +116,39 @@
     <section class="services">
         <h2>Detailed Service Offerings</h2>
         <div class="services-container">
+            <style>
+                .service-card {
+                    position: relative;
+                    overflow: hidden;
+                    transition: all 0.3s ease;
+                }
+                
+                .service-card::before {
+                    content: '';
+                    position: absolute;
+                    top: -100%;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 255, 0.2);
+                    transition: all 0.4s ease;
+                    z-index: 1;
+                }
+                
+                .service-card:hover::before {
+                    top: 0;
+                }
+                
+                .service-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                }
+                
+                .service-card * {
+                    position: relative;
+                    z-index: 2;
+                }
+            </style>
             <div class="service-card" data-service="Photography" data-price="15000">
                 <h3>Photography</h3>
                 <p>Our photography services cover everything from intimate portraits to large-scale commercial shoots.</p>
